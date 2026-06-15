@@ -1,14 +1,9 @@
-FROM debian:buster
+FROM debian:trixie
 
 LABEL maintainer="Dev Team <dev@example.com>"
 
-# архивная версия buster'a
-RUN echo "deb http://archive.debian.org/debian buster main" > /etc/apt/sources.list
-RUN echo "deb http://archive.debian.org/debian-security buster/updates main" >> /etc/apt/sources.list
-RUN echo "deb http://archive.debian.org/debian buster-updates main" >> /etc/apt/sources.list
-
 RUN apt-get update 
-RUN apt-get install -y qtbase5-dev g++
+RUN apt-get install -y qtbase5-dev g++ make
 
 COPY . /opt/some_app
 
